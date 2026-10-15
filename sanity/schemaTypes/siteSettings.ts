@@ -19,7 +19,6 @@ export const siteSettings = defineType({
   type: "document",
   fieldsets: [
     { name: "brand", title: "Identitas", options: { collapsible: false } },
-    { name: "channel", title: "Fakta kanal", options: { collapsible: true, collapsed: false } },
     { name: "ticker", title: "Ticker beranda", options: { collapsible: true, collapsed: false } },
   ],
   fields: [
@@ -68,46 +67,6 @@ export const siteSettings = defineType({
       fieldset: "brand",
       description: "Meta description bawaan untuk halaman yang tidak punya sendiri.",
       validation: (rule) => rule.max(300),
-    }),
-
-    defineField({
-      name: "youtubeSubscribers",
-      title: "Subscriber YouTube",
-      type: "string",
-      fieldset: "channel",
-      description: 'Ditulis seperti tampil di YouTube, mis. "20.9K".',
-    }),
-    defineField({
-      name: "youtubeVideos",
-      title: "Jumlah video (diklaim kanal)",
-      type: "string",
-      fieldset: "channel",
-    }),
-    defineField({
-      name: "youtubeViews",
-      title: "Total tayangan",
-      type: "string",
-      fieldset: "channel",
-    }),
-    defineField({ name: "youtubeJoined", title: "Bergabung", type: "string", fieldset: "channel" }),
-    defineField({
-      name: "instagramFollowers",
-      title: "Follower Instagram",
-      type: "string",
-      fieldset: "channel",
-    }),
-    defineField({
-      name: "instagramPosts",
-      title: "Postingan Instagram",
-      type: "string",
-      fieldset: "channel",
-    }),
-    defineField({
-      name: "scrapedAt",
-      title: "Terakhir diperbarui",
-      type: "string",
-      fieldset: "channel",
-      description: "Kapan angka-angka di atas terakhir dicek.",
     }),
 
     defineField({
