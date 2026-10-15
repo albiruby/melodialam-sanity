@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { ARTICLE_CATEGORY_VALUES } from "../../lib/taxonomy";
+import { ARTICLE_CATEGORY_VALUES, CATEGORY_LABELS } from "../../lib/taxonomy";
 
 /**
  * An editorial article. Lives in the public `production` dataset, so reads need
@@ -29,7 +29,7 @@ export const article = defineType({
       title: "Rubrik",
       type: "string",
       options: {
-        list: ARTICLE_CATEGORY_VALUES.map((value) => ({ title: value, value })),
+        list: ARTICLE_CATEGORY_VALUES.map((value) => ({ title: CATEGORY_LABELS[value], value })),
         layout: "radio",
       },
       validation: (rule) => rule.required(),

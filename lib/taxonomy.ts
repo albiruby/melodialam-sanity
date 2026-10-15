@@ -24,6 +24,21 @@ export const ARTICLE_CATEGORY_VALUES = [
 
 export type ArticleCategory = (typeof ARTICLE_CATEGORY_VALUES)[number];
 
+/**
+ * The name an editor sees. The stored value is the short internal key, and the
+ * site renders this label everywhere — the raw value is never displayed.
+ *
+ * Note that "Rekomendasi Melodi" is stored under its old key but shown as
+ * "Fakta Musik": renaming it was a display change, so no article data had to be
+ * migrated.
+ */
+export const CATEGORY_LABELS: Record<ArticleCategory, string> = {
+  "Fakta Musik": "Fakta Musik & Esai",
+  "Rekomendasi Melodi": "Fakta Musik",
+  "Bicara Melodi": "Bicara Melodi Notes",
+  "Liputan Panggung": "Liputan & Gig Report",
+};
+
 /* --- Demo queue ---------------------------------------------------------- */
 
 /**
