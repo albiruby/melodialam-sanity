@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+
+# Studio build output (npm run deploy)
+dist
+
+# Sanity's local runtime shim — auto-generated, edits are discarded
+.sanity
+
+# env (none required to build or deploy; kept in case a plugin needs one later)
+.env*
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+*.tsbuildinfo
