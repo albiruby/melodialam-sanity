@@ -9,6 +9,7 @@ import {
   SANITY_SUBMISSIONS_DATASET,
 } from "./lib/sanity-project";
 import { contentSchemaTypes, submissionSchemaTypes } from "./sanity/schemaTypes";
+import { contentStructure, submissionsStructure } from "./sanity/structure";
 
 /**
  * Two workspaces, one Studio.
@@ -33,7 +34,7 @@ export default defineConfig([
     basePath: "/content",
     projectId: SANITY_PROJECT_ID,
     dataset: SANITY_DATASET,
-    plugins: [structureTool(), visionTool()],
+    plugins: [structureTool({ structure: contentStructure }), visionTool()],
     schema: { types: contentSchemaTypes },
   },
   {
@@ -42,7 +43,7 @@ export default defineConfig([
     basePath: "/submissions",
     projectId: SANITY_PROJECT_ID,
     dataset: SANITY_SUBMISSIONS_DATASET,
-    plugins: [structureTool(), visionTool()],
+    plugins: [structureTool({ structure: submissionsStructure }), visionTool()],
     schema: { types: submissionSchemaTypes },
   },
 ]);
