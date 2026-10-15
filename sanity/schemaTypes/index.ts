@@ -1,6 +1,7 @@
 import { article } from "./article";
 import { demoContact } from "./demoContact";
 import { demoSubmission } from "./demoSubmission";
+import { interview } from "./interview";
 import { playlist } from "./playlist";
 import { siteSettings } from "./siteSettings";
 import { video } from "./video";
@@ -17,6 +18,6 @@ import { video } from "./video";
  * CDN-cacheable while the PII stays behind the server token.
  */
 
-export const contentSchemaTypes = [article, video, playlist, siteSettings];
+export const contentSchemaTypes = [article, video, playlist, interview, siteSettings];
 
 export const submissionSchemaTypes = [demoSubmission, demoContact];

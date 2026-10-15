@@ -55,6 +55,14 @@ export const article = defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: "imagePath",
+      title: "Path gambar sementara",
+      type: "string",
+      description:
+        "Untuk artikel yang belum punya sampul terunggah: path lokal seperti /photos/dsc09408.webp. Dipakai hanya kalau Sampul kosong — unggah Sampul untuk menggantinya.",
+      hidden: ({ document }) => Boolean(document?.image),
+    }),
+    defineField({
       name: "body",
       title: "Isi",
       type: "array",

@@ -70,6 +70,16 @@ export const siteSettings = defineType({
     }),
 
     defineField({
+      name: "curationNote",
+      title: "Catatan kurasi",
+      type: "string",
+      fieldset: "brand",
+      description:
+        'Muncul kecil di samping judul bagian, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini — itu akan kedaluwarsa.',
+      validation: (rule) => rule.max(60),
+    }),
+
+    defineField({
       name: "tickerItems",
       title: "Item ticker",
       type: "array",
