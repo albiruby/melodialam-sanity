@@ -6,6 +6,7 @@ import { pahlawanRow } from "./pahlawanRow";
 import { playlist } from "./playlist";
 import { siteSettings } from "./siteSettings";
 import { video } from "./video";
+import { videosPage } from "./videosPage";
 
 /**
  * Two datasets, two schema sets, deliberately never mixed:
@@ -21,6 +22,14 @@ import { video } from "./video";
  * CDN-cacheable while the PII stays behind the server token.
  */
 
-export const contentSchemaTypes = [article, interview, video, playlist, pahlawanRow, siteSettings];
+export const contentSchemaTypes = [
+  article,
+  interview,
+  video,
+  playlist,
+  pahlawanRow,
+  siteSettings,
+  videosPage,
+];
 
 export const submissionSchemaTypes = [demoSubmission, demoContact];
