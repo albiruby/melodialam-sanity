@@ -15,6 +15,7 @@ import { defineField, defineType } from "sanity";
 export const pahlawanRow = defineType({
   name: "pahlawanRow",
   title: "Pahlawan Kota",
+  description: "Baris direktori genre dan skena. Tampil di halaman Pahlawan Kota.",
   type: "document",
   fields: [
     defineField({

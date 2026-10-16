@@ -2,12 +2,14 @@ import { defineField, defineType } from "sanity";
 import { ARTICLE_CATEGORY_VALUES, CATEGORY_LABELS } from "../../lib/taxonomy";
 
 /**
- * An editorial article. Lives in the public `production` dataset, so reads need
- * no token and can be served through the CDN.
+ * An editorial article — the "Stories" page on the site. Lives in the public
+ * `production` dataset, so reads need no token and can be served through the CDN.
  */
 export const article = defineType({
   name: "article",
-  title: "Artikel",
+  title: "Stories",
+  description:
+    "Esai, liputan panggung, dan catatan redaksi. Tampil di beranda Latest News dan halaman Stories (/journal).",
   type: "document",
   fields: [
     defineField({
@@ -70,12 +72,6 @@ export const article = defineType({
         { type: "block" },
         { type: "image", options: { hotspot: true } },
       ],
-    }),
-    defineField({
-      name: "featured",
-      title: "Jadikan headline beranda",
-      type: "boolean",
-      initialValue: false,
     }),
   ],
   orderings: [

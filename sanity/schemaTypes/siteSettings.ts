@@ -15,7 +15,9 @@ import { defineField, defineType } from "sanity";
  */
 export const siteSettings = defineType({
   name: "siteSettings",
-  title: "Site settings",
+  title: "Pengaturan Situs",
+  description:
+    "Identitas situs, catatan kurasi, dan ticker beranda. Dipakai di seluruh halaman.",
   type: "document",
   fieldsets: [
     { name: "brand", title: "Identitas", options: { collapsible: false } },

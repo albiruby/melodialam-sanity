@@ -13,7 +13,9 @@ import { defineField, defineType } from "sanity";
  */
 export const interview = defineType({
   name: "interview",
-  title: "Wawancara",
+  title: "Bicara Melodi",
+  description:
+    "Episode pilihan untuk halaman Bicara Melodi dan teaser beranda. Thumbnail diambil dari YouTube ID.",
   type: "document",
   fields: [
     defineField({

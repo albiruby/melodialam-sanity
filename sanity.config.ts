@@ -39,7 +39,7 @@ export default defineConfig([
   },
   {
     name: "submissions",
-    title: "Antrean Demo",
+    title: "Submit Karya",
     basePath: "/submissions",
     projectId: SANITY_PROJECT_ID,
     dataset: SANITY_SUBMISSIONS_DATASET,

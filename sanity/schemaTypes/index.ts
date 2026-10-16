@@ -10,8 +10,10 @@ import { video } from "./video";
 /**
  * Two datasets, two schema sets, deliberately never mixed:
  *
- * - `contentSchemaTypes` → the public `production` dataset: articles, videos,
- *   playlists, the Pahlawan Kota directory and the site-wide settings singleton.
+ * - `contentSchemaTypes` → the public `production` dataset: articles (Stories),
+ *   Bicara Melodi interviews, videos, playlists, the Pahlawan Kota directory and
+ *   the site-wide settings singleton. The order below is the order of the
+ *   website's navigation, because the Studio sidebar follows it.
  * - `submissionSchemaTypes` → the private `submissions` dataset: demo queue rows
  *   and the manager contacts that must never be publicly readable.
  *
@@ -19,6 +21,6 @@ import { video } from "./video";
  * CDN-cacheable while the PII stays behind the server token.
  */
 
-export const contentSchemaTypes = [article, video, playlist, interview, siteSettings];
+export const contentSchemaTypes = [article, interview, video, playlist, pahlawanRow, siteSettings];
 
 export const submissionSchemaTypes = [demoSubmission, demoContact];

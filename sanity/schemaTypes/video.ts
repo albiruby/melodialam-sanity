@@ -17,7 +17,9 @@ import { defineField, defineType } from "sanity";
  */
 export const video = defineType({
   name: "video",
-  title: "Video",
+  title: "Videos",
+  description:
+    "Katalog video YouTube. Tampil di halaman Videos dan teaser beranda.",
   type: "document",
   fields: [
     defineField({
@@ -85,12 +87,6 @@ export const video = defineType({
       of: [{ type: "string" }],
       options: { layout: "tags" },
       description: "Nama artis yang tampil, satu per tag.",
-    }),
-    defineField({
-      name: "featured",
-      title: "Tampilkan di beranda",
-      type: "boolean",
-      initialValue: false,
     }),
   ],
   orderings: [

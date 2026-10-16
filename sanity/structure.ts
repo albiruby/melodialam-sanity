@@ -16,7 +16,7 @@ export const contentStructure = (S: StructureBuilder) =>
     .title("Konten")
     .items([
       S.listItem()
-        .title("Site settings")
+        .title("Pengaturan Situs")
         .id("siteSettings")
         .child(S.document().schemaType("siteSettings").documentId("siteSettings")),
       S.divider(),
@@ -24,4 +24,4 @@ export const contentStructure = (S: StructureBuilder) =>
     ]);
 
 export const submissionsStructure = (S: StructureBuilder) =>
-  S.list().title("Antrean Demo").items(S.documentTypeListItems());
+  S.list().title("Submit Karya").items(S.documentTypeListItems());

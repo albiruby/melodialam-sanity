@@ -39,7 +39,7 @@ literal di `lib/sanity-project.ts` (lihat alasannya di berkas itu).
 
 | Dataset | ACL | Isi | Siapa yang membaca |
 |---|---|---|---|
-| `production` | publik | `article` | situs, tanpa token |
+| `production` | publik | `article`, `interview`, `video`, `playlist`, `pahlawanRow`, `siteSettings` | situs, tanpa token |
 | `submissions` | **privat** | `demoSubmission`, `demoContact` | situs, **wajib token** |
 
 Pemisahan ini bukan kerapian. Dataset Sanity yang publik dapat dibaca siapa pun
@@ -53,12 +53,19 @@ dokumen yang kueri sama kembalikan dengan token.
 
 ## Tipe konten
 
-| Tipe | Workspace | Field penting |
-|---|---|---|
-| `article` | Konten | `title`, `slug`, `category`, `date`, `excerpt`, `image`, `body` (Portable Text), `featured` |
-| `pahlawanRow` | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
-| `demoSubmission` | Antrean Demo | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
-| `demoContact` | Antrean Demo | `submission` (reference), `contact` |
+Judul tipe di Studio sengaja sama dengan section di website, supaya editor tahu
+persis di mana sebuah dokumen muncul. Urutan sidebar mengikuti urutan navigasi situs.
+
+| Tipe | Judul di Studio | Workspace | Field penting |
+|---|---|---|---|
+| `article` | Stories | Konten | `title`, `slug`, `category`, `date`, `excerpt`, `image`, `body` (Portable Text) |
+| `interview` | Bicara Melodi | Konten | `artist`, `headline`, `youtubeId`, `caption`, `order` |
+| `video` | Videos | Konten | `youtubeId`, `title`, `publishedAt`, `durationSeconds`, `views`, `venue`, `featuring` |
+| `playlist` | Playlists | Konten | `title`, `playlistId`, `count`, `order` |
+| `pahlawanRow` | Pahlawan Kota | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
+| `siteSettings` | Pengaturan Situs | Konten | `name`, `tagline`, `curationNote`, `tickerItems` — singleton |
+| `demoSubmission` | Kiriman Demo | Submit Karya | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
+| `demoContact` | Kontak Demo | Submit Karya | `submission` (reference), `contact` |
 
 ### Moderasi antrean demo
 
@@ -107,6 +114,11 @@ Kalau perubahan skema menyentuh `lib/taxonomy.ts`, perbarui salinannya di
 - `npm run deploy` → `https://melodi-alam.sanity.studio`, **2/2 skema** terunggah.
 - 16 Oktober 2026: deploy ulang setelah menambah `pahlawanRow` — berhasil;
   `deployment.appId` dipin di `sanity.cli.ts` supaya `npm run deploy` tidak bertanya lagi.
+- 16 Oktober 2026: judul tipe disamakan dengan section situs (`Stories`, `Bicara
+  Melodi`, `Videos`, `Playlists`, `Pahlawan Kota`, `Pengaturan Situs`), urutan
+  sidebar mengikuti navigasi situs, dan `pahlawanRow` yang belum terdaftar di
+  `contentSchemaTypes` kini tampil. Field `featured` dihapus dari `article` dan
+  `video` (beranda memilih 4 terbaru, bukan centang). Deploy berhasil (`2/2 skema`).
 - Bundel hasil build memuat `03sgar5q`, `production`, `submissions`, dan keempat
   rubrik artikel — yaitu literal dari `lib/sanity-project.ts` dan `lib/taxonomy.ts`
   benar-benar ter-*inline*, bukan `undefined`.

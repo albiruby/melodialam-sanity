@@ -9,7 +9,8 @@ import { defineField, defineType } from "sanity";
  */
 export const playlist = defineType({
   name: "playlist",
-  title: "Playlist",
+  title: "Playlists",
+  description: "Playlist YouTube. Tampil di bagian Playlists pada halaman Videos.",
   type: "document",
   fields: [
     defineField({
