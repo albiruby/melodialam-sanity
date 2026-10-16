@@ -56,6 +56,7 @@ dokumen yang kueri sama kembalikan dengan token.
 | Tipe | Workspace | Field penting |
 |---|---|---|
 | `article` | Konten | `title`, `slug`, `category`, `date`, `excerpt`, `image`, `body` (Portable Text), `featured` |
+| `pahlawanRow` | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
 | `demoSubmission` | Antrean Demo | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
 | `demoContact` | Antrean Demo | `submission` (reference), `contact` |
 
@@ -104,6 +105,8 @@ Kalau perubahan skema menyentuh `lib/taxonomy.ts`, perbarui salinannya di
 
 - `npm run build` menghasilkan `dist/` tanpa error.
 - `npm run deploy` → `https://melodi-alam.sanity.studio`, **2/2 skema** terunggah.
+- 16 Oktober 2026: deploy ulang setelah menambah `pahlawanRow` — berhasil;
+  `deployment.appId` dipin di `sanity.cli.ts` supaya `npm run deploy` tidak bertanya lagi.
 - Bundel hasil build memuat `03sgar5q`, `production`, `submissions`, dan keempat
   rubrik artikel — yaitu literal dari `lib/sanity-project.ts` dan `lib/taxonomy.ts`
   benar-benar ter-*inline*, bukan `undefined`.

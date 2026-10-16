@@ -15,4 +15,6 @@ import { SANITY_DATASET, SANITY_PROJECT_ID } from "./lib/sanity-project";
 export default defineCliConfig({
   api: { projectId: SANITY_PROJECT_ID, dataset: SANITY_DATASET },
   studioHost: "melodi-alam",
+  // Pinned so `sanity deploy` never prompts for the application id again.
+  deployment: { appId: "c5dgz2kfpyz1u2tc1b7yni6j" },
 });
