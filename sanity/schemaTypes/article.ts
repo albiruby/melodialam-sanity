@@ -51,6 +51,15 @@ export const article = defineType({
       validation: (rule) => rule.max(300),
     }),
     defineField({
+      name: "note",
+      title: "Catatan panel hover",
+      description:
+        "Teks di panel hijau saat kartu artikel di-hover (beranda & Stories). Kosongkan untuk memakai Ringkasan.",
+      type: "text",
+      rows: 2,
+      validation: (rule) => rule.max(300),
+    }),
+    defineField({
       name: "image",
       title: "Sampul",
       type: "image",
