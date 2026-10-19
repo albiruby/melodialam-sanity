@@ -3,6 +3,7 @@ import { demoContact } from "./demoContact";
 import { demoSubmission } from "./demoSubmission";
 import { interview } from "./interview";
 import { pahlawanRow } from "./pahlawanRow";
+import { pillarPost } from "./pillarPost";
 import { playlist } from "./playlist";
 import { siteSettings } from "./siteSettings";
 import { video } from "./video";
@@ -27,6 +28,7 @@ export const contentSchemaTypes = [
   interview,
   video,
   playlist,
+  pillarPost,
   pahlawanRow,
   siteSettings,
   videosPage,
