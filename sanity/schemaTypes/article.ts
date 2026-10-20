@@ -43,6 +43,22 @@ export const article = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "mediaType",
+      title: "Sumber",
+      type: "string",
+      description:
+        "Post feed foto atau reel. Latest News di beranda hanya menampilkan artikel dari feed foto, jadi artikel dari reel sebaiknya ditandai Reel sampai ada padanan foto posnya.",
+      options: {
+        list: [
+          { title: "Foto — post feed", value: "foto" },
+          { title: "Reel — video", value: "reel" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "foto",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "excerpt",
       title: "Ringkasan",
       description: "Dipakai di kartu, meta description, dan JSON-LD.",
