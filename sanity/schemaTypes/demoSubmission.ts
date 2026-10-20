@@ -95,7 +95,15 @@ export const demoSubmission = defineType({
       title: "Nama berkas audio",
       type: "string",
       readOnly: true,
-      description: "Metadata saja (BR-001) — berkasnya tidak disimpan di sini.",
+      description: "Nama berkas yang diunggah bersama kiriman ini.",
+    }),
+    defineField({
+      name: "audioUrl",
+      title: "Audio demo",
+      type: "url",
+      readOnly: true,
+      description:
+        "Tautan berkas di Blob storage. Bisa diputar langsung dari sini; hanya terbaca oleh pengguna Studio.",
     }),
   ],
   orderings: [
