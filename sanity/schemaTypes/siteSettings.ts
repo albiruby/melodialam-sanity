@@ -1,7 +1,7 @@
-import { defineField, defineType } from "sanity";
+﻿import { defineField, defineType } from "sanity";
 
 /**
- * Site-wide copy and channel facts — a singleton.
+ * Site-wide copy and channel facts ΓÇö a singleton.
  *
  * One document with the fixed id `siteSettings`, pinned at the top of the
  * Konten structure so an editor cannot create a second one. The site reads it
@@ -77,13 +77,31 @@ export const siteSettings = defineType({
       type: "string",
       fieldset: "brand",
       description:
-        'Muncul kecil di samping judul bagian, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini — itu akan kedaluwarsa.',
+        'Muncul kecil di samping judul bagian, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini ΓÇö itu akan kedaluwarsa.',
       validation: (rule) => rule.max(60),
     }),
 
+    defineField({
+      name: "cardCurtain",
+      title: "Panel hijau kartu (hover)",
+      type: "object",
+      description: "Label pada panel hijau yang muncul saat kursor di atas kartu artikel.",
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        defineField({
+          name: "articleLabel",
+          title: "Label kanan atas (kartu Stories)",
           type: "string",
-          description: 'Kosong = "Baca Artikel Penuh".',
-          initialValue: "Baca Artikel Penuh",
+          description: 'Kosong = "READ STORY".',
+          initialValue: "READ STORY",
+          validation: (rule) => rule.max(24),
+        }),
+        defineField({
+          name: "articleCta",
+          title: "Tombol bawah (kartu Stories)",
+          type: "string",
+          description: 'Kosong = "Buka Catatan Redaksi".',
+          initialValue: "Buka Catatan Redaksi",
           validation: (rule) => rule.max(40),
         }),
       ],
