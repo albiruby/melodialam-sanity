@@ -9,7 +9,7 @@ export const article = defineType({
   name: "article",
   title: "Stories",
   description:
-    "Esai, liputan panggung, dan catatan redaksi. Tampil di beranda Latest News dan halaman Stories (/journal).",
+    "Esai, liputan panggung, dan catatan redaksi. Tampil di beranda Latest News dan halaman Stories (/stories).",
   type: "document",
   fields: [
     defineField({
@@ -22,7 +22,7 @@ export const article = defineType({
       name: "slug",
       title: "Slug",
       type: "slug",
-      description: "Menjadi alamat URL: /journal/<slug>. Ganti setelah terbit akan mematikan URL lama.",
+      description: "Menjadi alamat URL: /stories/<slug>. Ganti setelah terbit akan mematikan URL lama.",
       options: { source: "title", maxLength: 96 },
       validation: (rule) => rule.required(),
     }),

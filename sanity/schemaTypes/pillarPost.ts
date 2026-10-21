@@ -4,7 +4,7 @@ import { defineField, defineType } from "sanity";
  * Curated Instagram posts, grouped by content pillar.
  *
  * The team curates a pool per pillar in the Studio; the site renders the first
- * few of each pillar as "Dari Feed" sections on /journal (photo pillars) and
+ * few of each pillar as "Dari Feed" sections on /stories (photo pillars) and
  * /videos (reel pillars). `order` carries the curation order — leave it empty
  * and the section falls back to newest-first.
  */
