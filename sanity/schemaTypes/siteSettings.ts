@@ -81,40 +81,6 @@ export const siteSettings = defineType({
       validation: (rule) => rule.max(60),
     }),
 
-    defineField({
-      name: "cardCurtain",
-      title: "Panel hijau kartu (hover)",
-      type: "object",
-      description: "Label pada panel hijau yang muncul saat kursor di atas kartu artikel.",
-      options: { collapsible: true, collapsed: true },
-      fields: [
-        defineField({
-          name: "articleLabel",
-          title: "Label kanan atas (kartu Stories)",
-          type: "string",
-          description: 'Kosong = "READ STORY".',
-          initialValue: "READ STORY",
-          validation: (rule) => rule.max(24),
-        }),
-        defineField({
-          name: "articleCta",
-          title: "Tombol bawah (kartu Stories)",
-          type: "string",
-          description: 'Kosong = "Buka Catatan Redaksi".',
-          initialValue: "Buka Catatan Redaksi",
-          validation: (rule) => rule.max(40),
-        }),
-        defineField({
-          name: "featureLabel",
-          title: "Label kanan atas (kartu beranda)",
-          type: "string",
-          description: 'Kosong = "READ".',
-          initialValue: "READ",
-          validation: (rule) => rule.max(24),
-        }),
-        defineField({
-          name: "featureCta",
-          title: "Tombol bawah (kartu beranda)",
           type: "string",
           description: 'Kosong = "Baca Artikel Penuh".',
           initialValue: "Baca Artikel Penuh",
