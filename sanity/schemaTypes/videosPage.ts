@@ -11,43 +11,15 @@ import { defineField, defineType } from "sanity";
  */
 export const videosPage = defineType({
   name: "videosPage",
-  title: "Halaman Videos",
+  title: "Halaman Melodi Samsara",
   description:
-    "Judul, catatan kecil, dan label tautan pada bagian-bagian halaman Videos.",
+    "Judul, catatan kecil, dan label tautan pada bagian-bagian halaman Melodi Samsara.",
   type: "document",
   fieldsets: [
-    { name: "bicara", title: "Bagian Bicara Melodi", options: { collapsible: false } },
     { name: "samsara", title: "Bagian Melodi Samsara", options: { collapsible: false } },
     { name: "playlists", title: "Bagian Playlists", options: { collapsible: false } },
   ],
   fields: [
-    defineField({
-      name: "bicaraTitle",
-      title: "Judul",
-      type: "string",
-      fieldset: "bicara",
-      initialValue: "Bicara Melodi",
-      validation: (rule) => rule.max(60),
-    }),
-    defineField({
-      name: "bicaraNote",
-      title: "Catatan kecil",
-      type: "string",
-      fieldset: "bicara",
-      description:
-        'Muncul kecil di samping judul. Kosong = dihitung otomatis, mis. "9 episode pilihan".',
-      validation: (rule) => rule.max(60),
-    }),
-    defineField({
-      name: "bicaraLinkLabel",
-      title: "Label tautan kanan",
-      type: "string",
-      fieldset: "bicara",
-      description: 'Kosong = "Lihat semua episode". Tanda ↗ ditambahkan situs.',
-      initialValue: "Lihat semua episode",
-      validation: (rule) => rule.max(60),
-    }),
-
     defineField({
       name: "samsaraTitle",
       title: "Judul",
