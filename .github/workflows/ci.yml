@@ -1,0 +1,42 @@
+name: CI
+
+# The Studio is its own repository, so it needs its own gate: the schema is
+# TypeScript, and a type error there only shows up when an editor opens a
+# broken form. Typecheck and build on every push and pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Typecheck and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          # Same line as the website: Node 24.
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # `sanity build` compiles the Studio bundle. No login needed: the project
+      # id and dataset names are literals in lib/sanity-project.ts.
+      - name: Build
+        run: npm run build
