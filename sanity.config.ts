@@ -43,7 +43,13 @@ export default defineConfig([
     basePath: "/submissions",
     projectId: SANITY_PROJECT_ID,
     dataset: SANITY_SUBMISSIONS_DATASET,
-    plugins: [structureTool({ structure: submissionsStructure }), visionTool()],
+    // No `visionTool` here on purpose. It is a free GROQ console, and this
+    // workspace is the private one: it holds the demo queue and the manager
+    // contacts. Anyone with access to the workspace already sees the documents
+    // through the structure, but the console would let them read, in one query,
+    // every contact at once — and to keep it there would be a standing invitation
+    // to paste a document somewhere it does not belong.
+    plugins: [structureTool({ structure: submissionsStructure })],
     schema: { types: submissionSchemaTypes },
   },
 ]);
