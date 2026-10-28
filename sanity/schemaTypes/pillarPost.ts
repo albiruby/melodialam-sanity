@@ -3,16 +3,15 @@ import { defineField, defineType } from "sanity";
 /**
  * Curated Instagram posts, grouped by content pillar.
  *
- * The team curates a pool per pillar in the Studio; the site renders the first
- * few of each pillar as "Dari Feed" sections on /stories (photo pillars) and
- * /videos (reel pillars). `order` carries the curation order — leave it empty
- * and the section falls back to newest-first.
+ * The team curates a pool per pillar in the Studio. `/kurasi` renders the
+ * groups; the homepage Curated section takes the first three photo posts in
+ * `order`. Leave `order` empty and the pool falls back to newest-first.
  */
 export const pillarPost = defineType({
   name: "pillarPost",
   title: "Konten Pillar",
   description:
-    "Post Instagram terkurasi per pillar konten. Tampil di section \"Dari Feed\" pada Stories dan Videos.",
+    "Post Instagram terkurasi per pillar. Tampil di halaman Curated (/kurasi); tiga post foto pertama juga tampil di Curated beranda.",
   type: "document",
   fields: [
     defineField({
@@ -45,6 +44,7 @@ export const pillarPost = defineType({
       name: "mediaType",
       title: "Jenis media",
       type: "string",
+      description: "Curated beranda hanya memakai feed foto; reel tetap tampil di /kurasi.",
       options: {
         list: [
           { title: "Feed foto", value: "foto" },
@@ -80,7 +80,8 @@ export const pillarPost = defineType({
       name: "order",
       title: "Urutan kurasi",
       type: "number",
-      description: "Kosongkan untuk urut tanggal terbaru.",
+      description:
+        "Beranda mengambil tiga post foto pertama sesuai urutan ini. Kosongkan untuk urut tanggal terbaru.",
     }),
   ],
   orderings: [

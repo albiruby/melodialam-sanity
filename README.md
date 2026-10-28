@@ -63,9 +63,12 @@ persis di mana sebuah dokumen muncul. Urutan sidebar mengikuti urutan navigasi s
 | `video` | Videos | Konten | `youtubeId`, `title`, `publishedAt`, `durationSeconds`, `views`, `venue`, `featuring` |
 | `playlist` | Playlists | Konten | `title`, `playlistId`, `count`, `order` |
 | `pahlawanRow` | Pahlawan Kota | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
-| `siteSettings` | Pengaturan Situs | Konten | `name`, `tagline`, `curationNote`, `tickerItems` — singleton |
+| `siteSettings` | Pengaturan Situs | Konten | `name`, `curationNote`, `cardCurtain`, `contactEmail`, `partnerEmail` — singleton |
 | `demoSubmission` | Kiriman Demo | Submit Karya | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
 | `demoContact` | Kontak Demo | Submit Karya | `submission` (reference), `contact` |
+
+> **Curated beranda.** Tiga post foto pertama diambil sesuai `order` (lalu
+> tanggal). Tidak ada field baru; atur urutannya di **Konten Pillar**.
 
 ### Moderasi antrean demo
 
@@ -118,7 +121,7 @@ Kalau perubahan skema menyentuh `lib/taxonomy.ts`, perbarui salinannya di
   Melodi`, `Videos`, `Playlists`, `Pahlawan Kota`, `Pengaturan Situs`), urutan
   sidebar mengikuti navigasi situs, dan `pahlawanRow` yang belum terdaftar di
   `contentSchemaTypes` kini tampil. Field `featured` dihapus dari `article` dan
-  `video` (beranda memilih 4 terbaru, bukan centang). Deploy berhasil (`2/2 skema`).
+  `video` (beranda memilih lead + sidebar + More Top News, bukan centang). Deploy berhasil (`2/2 skema`).
 - Bundel hasil build memuat `03sgar5q`, `production`, `submissions`, dan keempat
   rubrik artikel — yaitu literal dari `lib/sanity-project.ts` dan `lib/taxonomy.ts`
   benar-benar ter-*inline*, bukan `undefined`.

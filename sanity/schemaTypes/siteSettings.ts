@@ -1,13 +1,17 @@
 ﻿import { defineField, defineType } from "sanity";
 
 /**
- * Site-wide copy and channel facts ΓÇö a singleton.
+ * Site-wide copy and contact facts — a singleton.
  *
  * One document with the fixed id `siteSettings`, pinned at the top of the
  * Konten structure so an editor cannot create a second one. The site reads it
- * for the header, the footer, page metadata and the home-page ticker.
+ * for the footer name, the Stories-page note and hover curtain, and the two
+ * contact addresses.
  *
  * Not here, deliberately:
+ * - Header brand copy and navigation are code-owned; the current masthead does
+ *   not read a tagline, strapline, owner or EST from the CMS.
+ * - The ticker was removed from the site; its old fields are no longer exposed.
  * - `url` and `locale` are technical, and the origin has to come from the
  *   environment so a preview deployment produces correct canonical URLs.
  * - Navigation and footer links map to routes that exist in code; making them
@@ -17,11 +21,11 @@ export const siteSettings = defineType({
   name: "siteSettings",
   title: "Pengaturan Situs",
   description:
-    "Identitas situs, catatan kurasi, dan ticker beranda. Dipakai di seluruh halaman.",
+    "Identitas situs, catatan kurasi, panel kartu, dan kontak. Dipakai di footer, halaman Stories, dan halaman kontak.",
   type: "document",
   fieldsets: [
     { name: "brand", title: "Identitas", options: { collapsible: false } },
-    { name: "ticker", title: "Ticker beranda", options: { collapsible: true, collapsed: false } },
+    { name: "contact", title: "Kontak", options: { collapsible: true, collapsed: false } },
   ],
   fields: [
     defineField({
@@ -29,55 +33,16 @@ export const siteSettings = defineType({
       title: "Nama situs",
       type: "string",
       fieldset: "brand",
+      description: "Muncul di copyright footer.",
       validation: (rule) => rule.required().max(60),
     }),
-    defineField({
-      name: "tagline",
-      title: "Tagline",
-      type: "string",
-      fieldset: "brand",
-      description: "Muncul di header dan di judul metadata.",
-      validation: (rule) => rule.required().max(80),
-    }),
-    defineField({
-      name: "strapline",
-      title: "Strapline",
-      type: "string",
-      fieldset: "brand",
-      validation: (rule) => rule.max(120),
-    }),
-    defineField({
-      name: "owner",
-      title: "Pemilik",
-      type: "string",
-      fieldset: "brand",
-      validation: (rule) => rule.max(120),
-    }),
-    defineField({
-      name: "est",
-      title: "Berdiri",
-      type: "string",
-      fieldset: "brand",
-      description: 'Ditulis apa adanya, mis. "EST. 2017".',
-      validation: (rule) => rule.max(40),
-    }),
-    defineField({
-      name: "description",
-      title: "Deskripsi",
-      type: "text",
-      rows: 3,
-      fieldset: "brand",
-      description: "Meta description bawaan untuk halaman yang tidak punya sendiri.",
-      validation: (rule) => rule.max(300),
-    }),
-
     defineField({
       name: "curationNote",
       title: "Catatan kurasi",
       type: "string",
       fieldset: "brand",
       description:
-        'Muncul kecil di samping judul bagian, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini ΓÇö itu akan kedaluwarsa.',
+        'Muncul kecil di samping judul Stories, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini — itu akan kedaluwarsa.',
       validation: (rule) => rule.max(60),
     }),
 
@@ -108,35 +73,23 @@ export const siteSettings = defineType({
     }),
 
     defineField({
-      name: "tickerItems",
-      title: "Item ticker",
-      type: "array",
-      fieldset: "ticker",
-      of: [
-        {
-          type: "object",
-          name: "tickerItem",
-          fields: [
-            defineField({
-              name: "label",
-              title: "Teks",
-              type: "string",
-              validation: (rule) => rule.required().max(200),
-            }),
-            defineField({
-              name: "href",
-              title: "Tautan",
-              type: "string",
-              description: "Opsional. Boleh path internal (/submit) atau URL penuh.",
-            }),
-          ],
-          preview: { select: { title: "label", subtitle: "href" } },
-        },
-      ],
-      validation: (rule) => rule.max(8),
+      name: "contactEmail",
+      title: "Email redaksi",
+      type: "string",
+      fieldset: "contact",
+      description: "Muncul di footer, halaman privasi, ketentuan, dan tentang. Kosong = fallback situs.",
+      validation: (rule) => rule.max(120),
+    }),
+    defineField({
+      name: "partnerEmail",
+      title: "Email partnership",
+      type: "string",
+      fieldset: "contact",
+      description: "Muncul di footer dan halaman tentang. Kosong = fallback situs.",
+      validation: (rule) => rule.max(120),
     }),
   ],
   preview: {
-    select: { title: "name", subtitle: "tagline" },
+    select: { title: "name", subtitle: "curationNote" },
   },
 });

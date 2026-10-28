@@ -9,7 +9,7 @@ export const article = defineType({
   name: "article",
   title: "Stories",
   description:
-    "Esai, liputan panggung, dan catatan redaksi. Tampil di beranda Latest News dan halaman Stories (/stories).",
+    "Esai, liputan panggung, dan catatan redaksi. Tampil di Top News beranda dan halaman Stories (/stories).",
   type: "document",
   fields: [
     defineField({
@@ -47,7 +47,7 @@ export const article = defineType({
       title: "Sumber",
       type: "string",
       description:
-        "Post feed foto atau reel. Latest News di beranda hanya menampilkan artikel dari feed foto, jadi artikel dari reel sebaiknya ditandai Reel sampai ada padanan foto posnya.",
+        "Post feed foto atau reel. Top News di beranda hanya menampilkan artikel dari feed foto, jadi artikel dari reel sebaiknya ditandai Reel sampai ada padanan foto posnya.",
       options: {
         list: [
           { title: "Foto — post feed", value: "foto" },
