@@ -63,7 +63,7 @@ persis di mana sebuah dokumen muncul. Urutan sidebar mengikuti urutan navigasi s
 | `video` | Videos | Konten | `youtubeId`, `title`, `publishedAt`, `durationSeconds`, `views`, `venue`, `featuring` |
 | `playlist` | Playlists | Konten | `title`, `playlistId`, `count`, `order` |
 | `pahlawanRow` | Pahlawan Kota | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
-| `siteSettings` | Pengaturan Situs | Konten | `name`, `curationNote`, `cardCurtain`, `contactEmail`, `partnerEmail` — singleton |
+| `siteSettings` | Pengaturan Situs | Konten | `name`, `cardCurtain`, `contactEmail`, `partnerEmail` — singleton |
 | `demoSubmission` | Kiriman Demo | Submit Karya | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
 | `demoContact` | Kontak Demo | Submit Karya | `submission` (reference), `contact` |
 
