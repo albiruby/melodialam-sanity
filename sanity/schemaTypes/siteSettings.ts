@@ -5,8 +5,7 @@
  *
  * One document with the fixed id `siteSettings`, pinned at the top of the
  * Konten structure so an editor cannot create a second one. The site reads it
- * for the footer name, the Stories-page note and hover curtain, and the two
- * contact addresses.
+ * for the footer name, the hover curtain, and the two contact addresses.
  *
  * Not here, deliberately:
  * - Header brand copy and navigation are code-owned; the current masthead does
@@ -21,7 +20,7 @@ export const siteSettings = defineType({
   name: "siteSettings",
   title: "Pengaturan Situs",
   description:
-    "Identitas situs, catatan kurasi, panel kartu, dan kontak. Dipakai di footer, halaman Stories, dan halaman kontak.",
+    "Identitas situs, panel kartu, dan kontak. Dipakai di footer dan halaman kontak.",
   type: "document",
   fieldsets: [
     { name: "brand", title: "Identitas", options: { collapsible: false } },
@@ -36,16 +35,6 @@ export const siteSettings = defineType({
       description: "Muncul di copyright footer.",
       validation: (rule) => rule.required().max(60),
     }),
-    defineField({
-      name: "curationNote",
-      title: "Catatan kurasi",
-      type: "string",
-      fieldset: "brand",
-      description:
-        'Muncul kecil di samping judul Stories, mis. "kurasi redaksi". Jangan taruh bulan atau tahun di sini — itu akan kedaluwarsa.',
-      validation: (rule) => rule.max(60),
-    }),
-
     defineField({
       name: "cardCurtain",
       title: "Panel hijau kartu (hover)",
@@ -90,6 +79,6 @@ export const siteSettings = defineType({
     }),
   ],
   preview: {
-    select: { title: "name", subtitle: "curationNote" },
+    select: { title: "name", subtitle: "contactEmail" },
   },
 });

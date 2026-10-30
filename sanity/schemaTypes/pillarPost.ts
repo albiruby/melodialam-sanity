@@ -1,17 +1,17 @@
 import { defineField, defineType } from "sanity";
 
 /**
- * Curated Instagram posts, grouped by content pillar.
+ * Instagram feed posts, grouped by content pillar.
  *
- * The team curates a pool per pillar in the Studio. `/kurasi` renders the
- * groups; the homepage Curated section takes the first three photo posts in
+ * The team curates a pool per pillar in the Studio. `/discover` renders the
+ * groups; the homepage Discover section takes the first five photo posts in
  * `order`. Leave `order` empty and the pool falls back to newest-first.
  */
 export const pillarPost = defineType({
   name: "pillarPost",
   title: "Konten Pillar",
   description:
-    "Post Instagram terkurasi per pillar. Tampil di halaman Curated (/kurasi); tiga post foto pertama juga tampil di Curated beranda.",
+    "Post Instagram terkurasi per pillar. Tampil di halaman Discover (/discover); lima post foto pertama juga tampil di Discover beranda.",
   type: "document",
   fields: [
     defineField({
@@ -44,7 +44,7 @@ export const pillarPost = defineType({
       name: "mediaType",
       title: "Jenis media",
       type: "string",
-      description: "Curated beranda hanya memakai feed foto; reel tetap tampil di /kurasi.",
+      description: "Discover beranda hanya memakai feed foto; reel tetap tampil di /discover.",
       options: {
         list: [
           { title: "Feed foto", value: "foto" },

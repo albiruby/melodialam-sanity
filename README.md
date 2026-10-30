@@ -67,7 +67,7 @@ persis di mana sebuah dokumen muncul. Urutan sidebar mengikuti urutan navigasi s
 | `demoSubmission` | Kiriman Demo | Submit Karya | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
 | `demoContact` | Kontak Demo | Submit Karya | `submission` (reference), `contact` |
 
-> **Curated beranda.** Tiga post foto pertama diambil sesuai `order` (lalu
+> **Discover beranda.** Lima post foto pertama diambil sesuai `order` (lalu
 > tanggal). Tidak ada field baru; atur urutannya di **Konten Pillar**.
 
 ### Moderasi antrean demo
