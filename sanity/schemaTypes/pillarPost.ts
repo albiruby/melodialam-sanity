@@ -27,8 +27,6 @@ export const pillarPost = defineType({
           { title: "Rekomendasi Melodi", value: "rekomendasi" },
           { title: "Ulas Melodi", value: "ulas-melodi" },
           { title: "Clipper", value: "clipper" },
-          { title: "Similar Song", value: "similar-song" },
-          { title: "Meme Humor", value: "meme-humor" },
         ],
       },
       validation: (rule) => rule.required(),
@@ -78,7 +76,7 @@ export const pillarPost = defineType({
     }),
     defineField({
       name: "order",
-      title: "Urutan kurasi",
+      title: "Urutan Discover",
       type: "number",
       description:
         "Beranda mengambil tiga post foto pertama sesuai urutan ini. Kosongkan untuk urut tanggal terbaru.",
@@ -86,7 +84,7 @@ export const pillarPost = defineType({
   ],
   orderings: [
     {
-      title: "Pillar lalu urutan kurasi",
+      title: "Pillar lalu urutan Discover",
       name: "pillarOrder",
       by: [
         { field: "pillar", direction: "asc" },

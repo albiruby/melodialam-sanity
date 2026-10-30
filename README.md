@@ -39,15 +39,15 @@ literal di `lib/sanity-project.ts` (lihat alasannya di berkas itu).
 
 | Dataset | ACL | Isi | Siapa yang membaca |
 |---|---|---|---|
-| `production` | publik | `article`, `interview`, `video`, `playlist`, `pahlawanRow`, `siteSettings` | situs, tanpa token |
+| `production` | publik | `article`, `interview`, `video`, `playlist`, `pillarPost`, `siteSettings`, `videosPage` | situs, tanpa token |
 | `submissions` | **privat** | `demoSubmission`, `demoContact` | situs, **wajib token** |
 
 Pemisahan ini bukan kerapian. Dataset Sanity yang publik dapat dibaca siapa pun
 yang tahu project id, dan `demoContact` menyimpan nomor WhatsApp manajer musisi.
 Menaruhnya di `production` berarti membocorkannya.
 
-Terbukti: kueri tanpa token terhadap `submissions` mengembalikan `null` untuk
-dokumen yang kueri sama kembalikan dengan token.
+Terbukti: kueri tanpa token terhadap `submissions` mengembalikan hasil kosong
+untuk dokumen yang kueri sama kembalikan dengan token.
 
 ---
 
@@ -62,7 +62,6 @@ persis di mana sebuah dokumen muncul. Urutan sidebar mengikuti urutan navigasi s
 | `interview` | Bicara Melodi | Konten | `artist`, `headline`, `youtubeId`, `caption`, `order` |
 | `video` | Videos | Konten | `youtubeId`, `title`, `publishedAt`, `durationSeconds`, `views`, `venue`, `featuring` |
 | `playlist` | Playlists | Konten | `title`, `playlistId`, `count`, `order` |
-| `pahlawanRow` | Pahlawan Kota | Konten | `title`, `slug`, `artists`, `description`, `image` (+ `imagePath`), `tags`, `order` |
 | `siteSettings` | Pengaturan Situs | Konten | `name`, `cardCurtain`, `contactEmail`, `partnerEmail` — singleton |
 | `demoSubmission` | Kiriman Demo | Submit Karya | `artist`, `city`, `title`, `genre`, `program`, `link`, `story`, `status`, `submittedAt` |
 | `demoContact` | Kontak Demo | Submit Karya | `submission` (reference), `contact` |
